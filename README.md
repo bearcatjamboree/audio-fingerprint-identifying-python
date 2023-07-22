@@ -5,6 +5,10 @@
 
 ![](http://new.tinygrab.com/7020c0e8b010392da4053fa90ab8e0c8419bded864.png)
 
+## Installation
+1. git clone <>
+2. pip install -r requirements.txt
+
 ## How to set up 
 
 1. Run `$ make clean reset` to clean & init database struct
