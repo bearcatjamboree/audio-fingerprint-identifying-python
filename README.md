@@ -3,6 +3,9 @@
 - conference [PaceMaker: BackEnd-2016 conference](http://www.pacemaker.in.ua/BackEnd-2016/about)
 - slides are on [slideshare.net/rodomansky/ok-shazam-la-lalalaa](http://www.slideshare.net/rodomansky/ok-shazam-la-lalalaa)
 
+## Note
+This fork was modified to work with Python 3 and is tested and appears to function correctly on Mac M1 with Python Python 3.11.1
+
 ## Installation
 1. git clone https://github.com/bearcatjamboree/audio-fingerprint-identifying-python.git
 2. pip install -r requirements.txt
