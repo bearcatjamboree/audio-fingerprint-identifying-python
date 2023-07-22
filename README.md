@@ -6,7 +6,7 @@
 ![](http://new.tinygrab.com/7020c0e8b010392da4053fa90ab8e0c8419bded864.png)
 
 ## Installation
-1. git clone <>
+1. git clone https://github.com/bearcatjamboree/audio-fingerprint-identifying-python.git
 2. pip install -r requirements.txt
 
 ## How to set up 
