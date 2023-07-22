@@ -1,5 +1,3 @@
-import sys
-
 class Database(object):
   TABLE_SONGS = None
   TABLE_FINGERPRINTS = None

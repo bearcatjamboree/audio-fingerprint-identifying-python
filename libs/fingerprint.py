@@ -95,7 +95,7 @@ def fingerprint(channel_samples, Fs=DEFAULT_FS,
     local_maxima = get_2D_peaks(arr2D, plot=plots, amp_min=amp_min)
 
     msg = '   local_maxima: %d of frequency & time pairs'
-    print colored(msg, attrs=['dark']) % len(local_maxima)
+    print (colored(msg, attrs=['dark']) % len(list(local_maxima)))
 
     # return hashes
     return generate_hashes(local_maxima, fan_value=fan_value)
@@ -144,6 +144,7 @@ def get_2D_peaks(arr2D, plot=False, amp_min=DEFAULT_AMP_MIN):
 # example: [(e05b341a9b77a51fd26, 32), ... ]
 def generate_hashes(peaks, fan_value=DEFAULT_FAN_VALUE):
     if PEAK_SORT:
+      peaks = list(peaks) #added
       peaks.sort(key=itemgetter(1))
 
     # bruteforce all peaks
@@ -164,5 +165,5 @@ def generate_hashes(peaks, fan_value=DEFAULT_FAN_VALUE):
 
           # check if delta is between min & max
           if t_delta >= MIN_HASH_TIME_DELTA and t_delta <= MAX_HASH_TIME_DELTA:
-            h = hashlib.sha1("%s|%s|%s" % (str(freq1), str(freq2), str(t_delta)))
+            h = hashlib.sha1(("%s|%s|%s" % (str(freq1), str(freq2), str(t_delta))).encode('utf-8'))
             yield (h.hexdigest()[0:FINGERPRINT_REDUCTION], t1)

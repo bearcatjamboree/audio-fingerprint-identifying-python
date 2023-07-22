@@ -1,8 +1,7 @@
-from db import Database
-from config import get_config
+from libs.db import Database
+from libs.config import get_config
 import sqlite3
-import sys
-from itertools import izip_longest
+from itertools import zip_longest
 from termcolor import colored
 
 class SqliteDatabase(Database):
@@ -66,7 +65,7 @@ class SqliteDatabase(Database):
 
   def insert(self, table, params):
     keys = ', '.join(params.keys())
-    values = params.values()
+    values = [int(x) if isinstance(x, bool) else x for x in params.values()]
 
     query = "INSERT INTO songs (%s) VALUES (?, ?)" % (keys);
 
@@ -79,7 +78,7 @@ class SqliteDatabase(Database):
     def grouper(iterable, n, fillvalue=None):
       args = [iter(iterable)] * n
       return (filter(None, values) for values
-          in izip_longest(fillvalue=fillvalue, *args))
+          in zip_longest(fillvalue=fillvalue, *args))
 
     for split_values in grouper(values, 1000):
       query = "INSERT OR IGNORE INTO %s (%s) VALUES (?, ?, ?)" % (table, ", ".join(columns))
