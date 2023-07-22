@@ -3,7 +3,6 @@ import argparse
 import sys
 
 from libs.db_sqlite import SqliteDatabase
-from termcolor import colored
 from argparse import RawTextHelpFormatter
 
 if __name__ == '__main__':
@@ -19,4 +18,4 @@ if __name__ == '__main__':
 
   row = db.executeOne(args.query)
 
-  print row
+  print (row)
